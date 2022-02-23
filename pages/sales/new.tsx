@@ -134,7 +134,7 @@ const CreateCustomer: NextPage = () => {
           Valor{" "}
         </FormLabel>
         <InputGroup>
-          <InputLeftAddon children="USD" />
+          <InputLeftAddon>$</InputLeftAddon>
           <Input
             as={NumberFormat}
             thousandSeparator={true}
@@ -212,11 +212,9 @@ const CreateCustomer: NextPage = () => {
                 <SliderTrack>
                   <SliderFilledTrack />
                 </SliderTrack>
-                <SliderThumb
-                  fontSize="sm"
-                  boxSize="32px"
-                  children={numberOfPayments}
-                />
+                <SliderThumb fontSize="sm" boxSize="32px">
+                  {numberOfPayments}
+                </SliderThumb>
               </Slider>
             </Flex>
           </FormControl>
