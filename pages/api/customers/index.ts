@@ -2,11 +2,6 @@ import { MongoError, ObjectId } from "mongodb";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { connectToDatabase } from "../../../util/mongodb";
 
-type Customer = {
-  name: string;
-  phoneNumber: string;
-};
-
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { db } = await connectToDatabase();
   const { method } = req;
