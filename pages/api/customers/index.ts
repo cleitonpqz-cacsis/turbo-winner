@@ -2,11 +2,6 @@ import { MongoError, ObjectId } from "mongodb";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { connectToDatabase } from "../../../util/mongodb";
 
-type Customer = {
-  name: string;
-  phoneNumber: string;
-};
-
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { db } = await connectToDatabase();
   const { method } = req;
@@ -43,7 +38,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         if (error instanceof MongoError) {
           if (error.code === 11000) {
             res.status(409).json({
-              error: `There is already a customer with name ${customer.name}`,
+              error: `Já existe cadastro de cliente com o nome ${customer.name}`,
             });
           } else {
             res.status(500).json({ error: `Mongo DB error: ${error}` });
