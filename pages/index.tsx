@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
+import { Button } from "@chakra-ui/react";
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -14,6 +16,12 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <h1 className={styles.title}>Welcome to the management tool!</h1>
       </main>
+
+      <Link href="/customers">
+        <Button size="lg" colorScheme="blue">
+          Clientes
+        </Button>
+      </Link>
 
       <footer className={styles.footer}>
         <a
