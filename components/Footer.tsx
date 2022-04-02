@@ -1,8 +1,13 @@
 import styles from "../styles/Home.module.css";
+import { useColorModeValue, Box } from "@chakra-ui/react";
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
+    <Box
+      className={styles.footer}
+      as="footer"
+      bg={useColorModeValue("white", "gray.800")}
+    >
       <a
         href="https://machadomultiservices.com/"
         target="_blank"
@@ -10,6 +15,6 @@ export default function Footer() {
       >
         Copyright @ Machado Multiservices
       </a>
-    </footer>
+    </Box>
   );
 }

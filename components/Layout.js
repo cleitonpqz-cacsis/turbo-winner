@@ -12,7 +12,7 @@ export default function Layout({ children }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <NavBar/>
-            <Box minH={500}>{ children }</Box>
+            <Box minH={570}>{ children }</Box>
             <Footer/>
         </>
     )
