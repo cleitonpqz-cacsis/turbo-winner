@@ -20,8 +20,11 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import Image from "next/image";
+import logo from "../public/logo-mm-black.png";
 
-const NavBar: Function = () => {
+function NavBar(): JSX.Element {
+
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -29,7 +32,7 @@ const NavBar: Function = () => {
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
-        minH={"60px"}
+        minH={"70px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={1}
@@ -51,16 +54,17 @@ const NavBar: Function = () => {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
+        <Flex ml="0" href="/">
+          <Image src={logo} width={100} height={40} />
+        </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
-          >
-            Logo
-          </Text>
+          ></Text>
 
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <Flex display={{ base: "none", md: "flex" }} ml={5}>
             <DesktopNav />
           </Flex>
         </Flex>
@@ -78,10 +82,10 @@ const NavBar: Function = () => {
       </Collapse>
     </Box>
   );
-};
+}
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
+  const linkColor = useColorModeValue("black", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
@@ -94,8 +98,7 @@ const DesktopNav = () => {
               <Link
                 p={2}
                 href={navItem.href ?? "#"}
-                fontSize={"sm"}
-                fontWeight={500}
+                fontSize={"md"}
                 color={linkColor}
                 _hover={{
                   textDecoration: "none",
@@ -247,25 +250,8 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Clientes",
-    children: [
-      {
-        label: "Novo cliente",
-        href: "/customers/new",
-      },
-      {
-        label: "Tabela clientes",
-        href: "/customers",
-      },
-    ],
+    href: "/customers",
   },
-  // {
-  //   label: "Contratos",
-  //   href: "#",
-  // },
-  // {
-  //   label: "Produtos",
-  //   href: "#",
-  // },
 ];
 
 export default NavBar;
