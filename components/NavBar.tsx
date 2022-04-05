@@ -24,6 +24,7 @@ import Image from "next/image";
 import logo from "../public/logo-mm-black.png";
 
 function NavBar(): JSX.Element {
+
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -251,14 +252,6 @@ const NAV_ITEMS: Array<NavItem> = [
     label: "Clientes",
     href: "/customers",
   },
-  // {
-  //   label: "Contratos",
-  //   href: "#",
-  // },
-  // {
-  //   label: "Produtos",
-  //   href: "#",
-  // },
 ];
 
 export default NavBar;
