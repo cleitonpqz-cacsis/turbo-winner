@@ -12,7 +12,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         .collection("customers")
         .find({})
         .sort({ metacritic: -1 })
-        .limit(20)
         .toArray();
 
       res.status(200).json(customers);
