@@ -1,24 +1,19 @@
 import { MongoError, ObjectId } from "mongodb";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { connectToDatabase } from "../../../util/mongodb";
+import { connectToDatabase } from "../../util/mongodb";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { db } = await connectToDatabase();
   const { method } = req;
 
   switch (method) {
-    case "GET":
-      const customers = await db
-        .collection("customers")
-        .find({})
-        .sort({ metacritic: -1 })
-        .toArray();
-
-      res.status(200).json(customers);
-      break;
     case "POST":
       // create new customer
-      const customer: Customer = req.body;
+      const customer: Customer = {
+        ...req.body,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
       try {
         const { acknowledged, insertedId } = await db
           .collection("customers")
@@ -48,7 +43,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       }
       break;
     default:
-      res.setHeader("Allow", ["GET", "POST"]);
+      res.setHeader("Allow", ["POST"]);
       res.status(405).end(`Method ${method} Not Allowed`);
   }
 };

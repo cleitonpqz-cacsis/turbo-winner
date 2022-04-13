@@ -8,7 +8,7 @@ const Customers: NextPage = ({ customers }) => {
   return (
     <Container>
       <Heading>Clientes</Heading>
-      <Link href="/customers/new">
+      <Link href="/customers/new" passHref>
         <Button colorScheme="blue" marginBottom="10px" float="right">
           Novo cliente
         </Button>

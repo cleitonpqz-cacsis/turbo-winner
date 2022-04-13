@@ -23,8 +23,7 @@ import {
 import Image from "next/image";
 import logo from "../public/logo-mm-black.png";
 
-function NavBar(): JSX.Element {
-
+const NavBar = () => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -82,7 +81,7 @@ function NavBar(): JSX.Element {
       </Collapse>
     </Box>
   );
-}
+};
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue("black", "gray.200");
