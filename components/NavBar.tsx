@@ -54,7 +54,12 @@ const NavBar = () => {
           />
         </Flex>
         <Flex ml="0" href="/">
-          <Image src={logo} width={100} height={40} />
+          <Image
+            src={logo}
+            width={100}
+            height={40}
+            alt="Machado Multiservices"
+          />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Text
@@ -250,6 +255,10 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Clientes",
     href: "/customers",
+  },
+  {
+    label: "Vendas",
+    href: "/invoices",
   },
 ];
 

@@ -1,18 +1,19 @@
 import type { NextPage } from "next";
-import { Button, Container, Heading } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Spacer } from "@chakra-ui/react";
 import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 import Link from "next/link";
 import { connectToDatabase } from "../../util/mongodb";
 
 const Customers: NextPage = ({ customers }) => {
   return (
-    <Container>
-      <Heading>Clientes</Heading>
-      <Link href="/customers/new" passHref>
-        <Button colorScheme="blue" marginBottom="10px" float="right">
-          Novo cliente
-        </Button>
-      </Link>
+    <Box>
+      <Flex>
+        <Heading>Clientes</Heading>
+        <Spacer />
+        <Link href="/customers/new" passHref>
+          <Button colorScheme="blue">Novo cliente</Button>
+        </Link>
+      </Flex>
       <Table variant="simple">
         <Thead>
           <Tr>
@@ -29,7 +30,7 @@ const Customers: NextPage = ({ customers }) => {
           ))}
         </Tbody>
       </Table>
-    </Container>
+    </Box>
   );
 };
 
@@ -38,7 +39,7 @@ export const getServerSideProps = async () => {
   const customers = await db
     .collection("customers")
     .find({})
-    .sort({ metacritic: -1 })
+    .sort({ name: 1 })
     .toArray();
 
   return { props: { customers: JSON.parse(JSON.stringify(customers)) } };

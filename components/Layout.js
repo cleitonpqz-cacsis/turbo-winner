@@ -14,7 +14,9 @@ export default function Layout({ children }) {
       <Center>
         <Box width="6xl">
           <NavBar />
-          <Box minH={570}>{children}</Box>
+          <Box minH={570} mt={5}>
+            {children}
+          </Box>
           <Footer />
         </Box>
       </Center>
