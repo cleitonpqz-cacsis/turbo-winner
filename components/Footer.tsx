@@ -1,12 +1,12 @@
-import styles from "../styles/Home.module.css";
-import { useColorModeValue, Box } from "@chakra-ui/react";
+import { useColorModeValue, Center } from "@chakra-ui/react";
 
 export default function Footer() {
   return (
-    <Box
-      className={styles.footer}
+    <Center
+      marginTop={"auto"}
       as="footer"
       bg={useColorModeValue("white", "gray.800")}
+      p={{ base: 3, md: 6 }}
     >
       <a
         href="https://machadomultiservices.com/"
@@ -15,6 +15,6 @@ export default function Footer() {
       >
         Copyright @ Machado Multiservices
       </a>
-    </Box>
+    </Center>
   );
 }
