@@ -1,12 +1,13 @@
 import {
+  Box,
   Button,
-  Container,
   FormControl,
   FormErrorMessage,
   FormLabel,
   Heading,
   Input,
   useToast,
+  VStack,
 } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
@@ -50,25 +51,22 @@ const CreateCustomer: NextPage = () => {
   };
 
   return (
-    <Container>
+    <Box width="xl">
       <Heading>Novo cliente</Heading>
-      <form>
+      <VStack spacing={5}>
         <FormControl isRequired isInvalid={!!errors?.name?.message}>
-          <FormLabel marginTop={2} htmlFor="name">
-            Nome
-          </FormLabel>
+          <FormLabel htmlFor="name">Nome</FormLabel>
           <Input
             width={400}
             placeholder="Nome completo do cliente"
             autoComplete="off"
             {...register("name", { required: "Nome deve ser preenchido" })}
-          ></Input>
+          />
           <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
         </FormControl>
+
         <FormControl isRequired isInvalid={!!errors?.phoneNumber?.message}>
-          <FormLabel marginTop={2} htmlFor="phoneNumber">
-            Telefone
-          </FormLabel>
+          <FormLabel htmlFor="phoneNumber">Telefone</FormLabel>
           <Input
             width={400}
             as={InputMask}
@@ -77,18 +75,17 @@ const CreateCustomer: NextPage = () => {
             {...register("phoneNumber", {
               required: "Número de telefone deve ser preenchido",
             })}
-          ></Input>
+          />
           <FormErrorMessage>{errors?.phoneNumber?.message}</FormErrorMessage>
         </FormControl>
-        <Button
-          marginTop={2}
-          colorScheme="blue"
-          onClick={handleSubmit(onSubmit)}
-        >
-          Criar
-        </Button>
-      </form>
-    </Container>
+
+        <FormControl>
+          <Button colorScheme="blue" onClick={handleSubmit(onSubmit)}>
+            Salvar
+          </Button>
+        </FormControl>
+      </VStack>
+    </Box>
   );
 };
 

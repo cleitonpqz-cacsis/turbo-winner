@@ -10,6 +10,7 @@ interface Customer extends Base {
 
 interface Invoice extends Base {
   customer_id: string;
+  customer?: Customer;
   item: string;
   totalAmount: number;
   dueDate: Date;
