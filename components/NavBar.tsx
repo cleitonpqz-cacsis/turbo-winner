@@ -53,7 +53,7 @@ const NavBar = () => {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex ml="0" href="/">
+        <Flex as={Link} href="/">
           <Image
             src={logo}
             width={100}

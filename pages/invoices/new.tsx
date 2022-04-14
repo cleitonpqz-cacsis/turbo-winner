@@ -80,7 +80,7 @@ const CreateInvoice: NextPage = ({ customers }) => {
 
   return (
     <Box width="xl">
-      <Heading>Nova conta a receber</Heading>
+      <Heading>Nova venda</Heading>
       <VStack spacing={5}>
         <FormControl isRequired isInvalid={!!errors.customer_id?.message}>
           <FormLabel htmlFor="customer_id">Cliente</FormLabel>
@@ -190,7 +190,7 @@ const CreateInvoice: NextPage = ({ customers }) => {
                     mr="2rem"
                     value={value}
                     onChange={onChange}
-                    max={36}
+                    max={80}
                     min={1}
                   >
                     <NumberInputField />
@@ -206,7 +206,7 @@ const CreateInvoice: NextPage = ({ customers }) => {
                     focusThumbOnChange={false}
                     value={value}
                     onChange={onChange}
-                    max={36}
+                    max={80}
                     min={1}
                   >
                     <SliderTrack>
