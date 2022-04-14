@@ -1,5 +1,12 @@
 import type { NextPage } from "next";
-import { Box, Button, Flex, Heading, Spacer } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  Spacer,
+  TableContainer,
+} from "@chakra-ui/react";
 import { Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 import Link from "next/link";
 import { connectToDatabase } from "../../util/mongodb";
@@ -18,22 +25,24 @@ const Customers: NextPage<Props> = ({ customers }) => {
           <Button colorScheme="blue">Novo cliente</Button>
         </Link>
       </Flex>
-      <Table variant="simple">
-        <Thead>
-          <Tr>
-            <Th>Nome</Th>
-            <Th>Telefone</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {customers.map((customer) => (
-            <Tr key={customer._id}>
-              <Td>{customer.name}</Td>
-              <Td>{customer.phoneNumber}</Td>
+      <TableContainer>
+        <Table variant="simple">
+          <Thead>
+            <Tr>
+              <Th>Nome</Th>
+              <Th>Telefone</Th>
             </Tr>
-          ))}
-        </Tbody>
-      </Table>
+          </Thead>
+          <Tbody>
+            {customers.map((customer) => (
+              <Tr key={customer._id}>
+                <Td>{customer.name}</Td>
+                <Td>{customer.phoneNumber}</Td>
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
+      </TableContainer>
     </Box>
   );
 };
