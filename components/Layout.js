@@ -11,14 +11,9 @@ export default function Layout({ children }) {
         <meta name="description" content="Contract management" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Flex direction={"column"}>
+      <Flex direction={"column"} h={"100vh"}>
         <NavBar />
-        <Stack
-          as={Box}
-          h={"100vh"}
-          spacing={{ base: 8, md: 14 }}
-          p={{ base: 3, md: 6 }}
-        >
+        <Stack as={Box} spacing={{ base: 8, md: 14 }} p={{ base: 3, md: 6 }}>
           {children}
         </Stack>
         <Footer />
