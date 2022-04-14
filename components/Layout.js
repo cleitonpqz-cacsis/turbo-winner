@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Box, Center } from "@chakra-ui/react";
+import { Box, Flex, Stack } from "@chakra-ui/react";
 import NavBar from "./NavBar.tsx";
 import Footer from "./Footer.tsx";
 
@@ -11,15 +11,18 @@ export default function Layout({ children }) {
         <meta name="description" content="Contract management" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Center>
-        <Box width="6xl">
-          <NavBar />
-          <Box minH={570} mt={5}>
-            {children}
-          </Box>
-          <Footer />
-        </Box>
-      </Center>
+      <Flex direction={"column"}>
+        <NavBar />
+        <Stack
+          as={Box}
+          h={"100vh"}
+          spacing={{ base: 8, md: 14 }}
+          p={{ base: 3, md: 6 }}
+        >
+          {children}
+        </Stack>
+        <Footer />
+      </Flex>
     </>
   );
 }
